@@ -12,7 +12,7 @@ public class DriverSingleton
 
 
     private DriverSingleton() {
-        System.setProperty("webdriver.chrome.driver", "C:\\webdrivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
     }
 
@@ -22,7 +22,7 @@ public class DriverSingleton
     }
 
 
-    public static synchronized DriverSingleton getInstance()
+    public static synchronized DriverSingleton getInstance() // синхронизированный метод создания драйвера - чтобы в разных потоках использовался один и тот же драйвер
     {
         if(instance == null ) {
             instance = new DriverSingleton();
